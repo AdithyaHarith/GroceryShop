@@ -3,21 +3,18 @@ package groceryshop;
 import java.util.List;
 
 public class Bill {
-    private List<Basket> baskets;
+    private List<Item> items;
 
-    public Bill(List<Basket> basket) {
-        this.baskets = basket;
+    public Bill(List<Item> items) {
+        this.items = items;
     }
 
-    public void displayBill(){
-        System.out.println("Bill Details");
-        double total=0;
-        for(Basket basket : baskets){
-
-           // shopItem.displaybasket();
-            total= total+basket.getPrice();
+    public void displayBill() {
+        double total = 0;
+        for (Item item : items) {
+            total = total + item.getPrice();
+            item.displayItem();
         }
-        System.out.println("Total bill: "+ total);
-
+        System.out.println("Total:" +total);
     }
 }
